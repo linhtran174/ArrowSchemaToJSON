@@ -8,6 +8,7 @@
 #include <arrow/type.h>
 
 #include <iostream>
+#include <unordered_map>
 #include <vector>
 #include <string>
 
@@ -32,7 +33,16 @@ int main(){
 
   field_person = field("Person", utf8());
 
+  // arrow::key_value_metadata({{"name", "linh tran"}, {"age", 27}});
 
+  unordered_map<string, string> map;
+
+  map["name"] = "Linh";
+
+  KeyValueMetadata kvMeta;
+  kvMeta.Append("name", "Linh");
+
+  cout << kvMeta.ToString() << endl;
 
   // arrow::KeyValueMetadata
   // arrow::schema({field_a, field_b});
@@ -47,8 +57,6 @@ int main(){
   //     {"type", "fields"}
   //   }}
   // };
-
-
 
   nlohmann::json j2 = {
     {"pi", 3.141},

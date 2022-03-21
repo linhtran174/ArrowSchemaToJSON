@@ -1,4 +1,5 @@
 build/
+build_make/*
 libs/
 CMakeFiles/
 Makefile

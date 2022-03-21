@@ -34,7 +34,7 @@ add_subdirectory(libs/nlohmann_json)
 include_directories(src)
 include_directories(libs/nlohmann_json/single_include)
 add_subdirectory(tests)
-add_subdirectory(src)
+# add_subdirectory(src)
 
 add_executable(main test.cpp)
 target_include_directories(main PRIVATE libs/nlohmann_json)
