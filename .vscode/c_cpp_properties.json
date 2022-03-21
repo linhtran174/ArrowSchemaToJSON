@@ -3,7 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/libs/nlohmann_json/single_include",
+                "${workspaceFolder}/libs/nlohmann_json/single_include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

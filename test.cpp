@@ -5,27 +5,66 @@
 #include <arrow/io/api.h>
 #include <arrow/result.h>
 #include <arrow/status.h>
+#include <arrow/type.h>
 
 #include <iostream>
 #include <vector>
 #include <string>
 
+#include <nlohmann/json.hpp>
+
 using namespace std;
+using namespace arrow;
+
 
 
 int main(){
-    // arrow::DataType;
-    
-    std::shared_ptr<arrow::Schema> schema;
-    std::shared_ptr<arrow::Field> field_a, field_b;
-    
-    // field_a = arrow::field("Name", arrow::);
+  // arrow::DataType;
+  
+  shared_ptr<Schema> schema;
+  shared_ptr<Field> field_person, field_p_name, field_p_age, field_p_profession;
+  
+  field_p_name = field("Name", utf8());
+  field_p_age = field("Age", int8());
+  field_p_profession = field("Name", utf8());
 
-    // arrow::KeyValueMetadata
-    // arrow::schema({field_a, field_b});
+  // shared_ptr<DataType> pmap = arrow::map(utf8(), );
 
-    std::cout << field_a->ToString() << std::endl;
+  field_person = field("Person", utf8());
 
-    
+
+
+  // arrow::KeyValueMetadata
+  // arrow::schema({field_a, field_b});
+
+  // std::cout << field_a->ToString() << std::endl;
+
+  // tentative schemas
+  // nlohmann::json tentativeSchemas = {
+  //   {"type", "schema"},
+  //   {"endianess", ""},
+  //   {"fields", {
+  //     {"type", "fields"}
+  //   }}
+  // };
+
+
+
+  nlohmann::json j2 = {
+    {"pi", 3.141},
+    {"happy", true},
+    {"name", "Niels"},
+    {"nothing", nullptr},
+    {"answer", {
+      {"everything", 42}
+    }},
+    {"list", {1, 0, 2}},
+    {"object", {
+      {"currency", "USD"},
+      {"value", 42.99}
+    }}
+  };
+
+  std::cout << j2.dump() << endl;
 }
 
