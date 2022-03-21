@@ -25,7 +25,10 @@ class SimpleDataTypeConverter : DataTypeConverter{
         };
 
         shared_ptr<DataType> parse(string JSON){
+            // cout << "String: " << JSON << endl;
             nlohmann::json j = nlohmann::json::parse(JSON);
+
+            // cout << "JSON" << j.dump() << endl;
             // j["dt_id"]
             std::map<Type::type, shared_ptr<DataType>> typeIdToDataType = {
                 {Type::NA, null()},
@@ -55,6 +58,7 @@ class SimpleDataTypeConverter : DataTypeConverter{
                 // {Type::DECIMAL128,},
             };
             
+            // (Type::type)j["dt_id"];
             shared_ptr<DataType> dtObj = typeIdToDataType[(Type::type)j["dt_id"]];
             
             return dtObj;

@@ -65,6 +65,11 @@ int main(){
   //   }}
   // };
 
+  const vector<string> &strings = {"ab", "cd", "ef", "gh"};
+  for(auto s : strings){
+    cout << s;
+  }
+
   nlohmann::json j2 = {
     {"pi", 3.141},
     {"happy", true},

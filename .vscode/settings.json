@@ -68,7 +68,11 @@
         "semaphore": "cpp",
         "codecvt": "cpp",
         "forward_list": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "span": "cpp",
+        "future": "cpp"
     },
     "cmake.configureOnOpen": true
 }
