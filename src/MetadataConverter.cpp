@@ -2,9 +2,11 @@
 #include <arrow/api.h>
 #include <nlohmann/json.hpp>
 
+#ifndef METADATACONVERTER
+#define METADATACONVERTER
+
 using namespace std;
 using namespace arrow;
-
 
 class MetadataConverter{
     public: 
@@ -42,8 +44,12 @@ class MetadataConverter{
             // return arrow::key_value_metadata(&map);
             return returnVal;
         }
+
+        
     private:
         // number of child fields
         int num_child;
 
 };
+
+#endif

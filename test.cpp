@@ -37,12 +37,19 @@ int main(){
 
   unordered_map<string, string> map;
 
-  map["name"] = "Linh";
+  // map["name"] = "Linh";
 
-  KeyValueMetadata kvMeta;
-  kvMeta.Append("name", "Linh");
+  // KeyValueMetadata kvMeta;
+  // kvMeta.Append("name", "Linh");
 
-  cout << kvMeta.ToString() << endl;
+  // cout << kvMeta.ToString() << endl;
+
+  std::map<Type::type, shared_ptr<DataType>> typeIdToDataType = {
+    {arrow::Type::BOOL, boolean()}
+  };
+
+  cout << typeIdToDataType[(Type::type)1]->ToString() << endl;
+  
 
   // arrow::KeyValueMetadata
   // arrow::schema({field_a, field_b});

@@ -2,19 +2,28 @@
 #include "FieldConverter.cpp"
 #include <arrow/api.h>
 
+
+#ifndef COMPOSITEFIELDCONVERTER
+#define COMPOSITEFIELDCONVERTER
+
+
 using namespace std;
 using namespace arrow;
 
 class CompositeFieldConverter : FieldConverter{
     public: 
-        CompositeFieldConverter(){
+        CompositeFieldConverter(){}
+        string serialize(shared_ptr<Field>){
 
         }
-        virtual string serialize(Field) = 0;
-        virtual Field parse(string JSON) = 0;
+        shared_ptr<Field> parse(string JSON){
+
+        }
         
     private:
         // number of child fields
         int num_child;
     
-}
+};
+
+#endif
