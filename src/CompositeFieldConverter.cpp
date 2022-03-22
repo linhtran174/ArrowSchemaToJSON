@@ -86,7 +86,11 @@ shared_ptr<Field> CompositeFieldConverter::parse(string JSON){
 
 
 bool CompositeFieldConverter::isCompositeField(shared_ptr<Field> field){
-    if( this->compositeFieldTypeId.find(field->type()->id()) != this->compositeFieldTypeId.end() ) return true;
+    return this->isCompositeField(field->type()->id());
+}
+
+bool CompositeFieldConverter::isCompositeField(int dataTypeId){
+    if( this->compositeFieldTypeId.find(dataTypeId) != this->compositeFieldTypeId.end() ) return true;
     else return false;
 }
 

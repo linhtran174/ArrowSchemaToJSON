@@ -18,4 +18,5 @@ class CompositeFieldConverter : FieldConverter{
         // number of child fields
         std::set<int> compositeFieldTypeId = {Type::type::MAP, Type::type::LIST};
         bool isCompositeField(shared_ptr<Field> field);
+        bool isCompositeField(int dataTypeId);
 };

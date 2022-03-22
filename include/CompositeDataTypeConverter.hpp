@@ -19,6 +19,6 @@ class CompositeDataTypeConverter : DataTypeConverter{
         string serializeList(shared_ptr<DataType> dtType);
         std::set<int> compositeFieldTypeId = {Type::type::MAP, Type::type::LIST};
         bool isCompositeDataType(shared_ptr<DataType> dtType);
-        bool isCompositeDataType(string JSON);
+        bool isCompositeDataType(int dataTypeId);
 
 };

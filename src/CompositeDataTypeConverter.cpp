@@ -47,12 +47,20 @@ shared_ptr<DataType> CompositeDataTypeConverter::parse(string JSON){
         throw "Error: DataType JSON string without dt_id";
     }
 
-    if(this->isCompositeDataType(JSON)){
+    if(this->isCompositeDataType(j["dt_id"])){
+        // Q: Multiple fields in a dataType, no factory function for that??!
         if(j["dt_id"] == (int) Type::type::MAP){
+            // Cannot retrive key from MapType
             throw "Error MapType not supported.";
         }
-        else if(j["dt_id"] == (int) Type::type::LIST){
+        else if(j["dt_id"] == (int) Type::type::LIST){    
+            throw "Error MapType not supported.";
+            CompositeFieldConverter c;
+            shared_ptr<Field> child_field = c.parse(
+                j["list"].dump()
+            );
 
+            return list(child_field);
         }
     }
 }
@@ -72,16 +80,20 @@ string CompositeDataTypeConverter::serializeList(shared_ptr<DataType> dtType){
     nlohmann::json j;
     j["dt_type"] = "list";
     j["dt_id"] = dtType->id();
-    j["list"] = nlohmann::json::array();
 
-    CompositeFieldConverter c;
-    for(auto &f : dtType->fields()){
-        j["list"].push_back(
-            nlohmann::json::parse(
-                c.serialize(f)
-            )
-        );
-    }
+    ////ABORTED_CODE: ListType may not contains multiple different Fields 
+    // j["list"] = nlohmann::json::array();
+    // CompositeFieldConverter c;
+    // for(auto &f : dtType->fields()){
+    //     j["list"].push_back(
+    //         nlohmann::json::parse(
+    //             c.serialize(f)
+    //         )
+    //     );
+    // }
+
+    // Q: how to retrieve child Fields from ListType ? 
+    throw "Error: Not implemented";
 
     return j.dump();
 } 
@@ -89,16 +101,13 @@ string CompositeDataTypeConverter::serializeList(shared_ptr<DataType> dtType){
 bool CompositeDataTypeConverter::isCompositeDataType(shared_ptr<DataType> dtType){
     // Q: Where is the factory function for DataType with multiple child fields?
 
-    if( this->compositeFieldTypeId.find(dtType->id()) != this->compositeFieldTypeId.end() ) return true;
-    else return false;
+    return this->isCompositeDataType(dtType->id())
     // if(dtType->num_fields() > 1) return true;
     // else return false;
 }
 
-bool CompositeDataTypeConverter::isCompositeDataType(string JSON){
-    nlohmann::json j = nlohmann::json::parse(JSON);
-
-    if( this->compositeFieldTypeId.find(j["dt_id"]) != this->compositeFieldTypeId.end() ) return true;
+bool CompositeDataTypeConverter::isCompositeDataType(int dataTypeId){
+    if( this->compositeFieldTypeId.find(dataTypeId) != this->compositeFieldTypeId.end() ) return true;
     else return false;
 }
 
