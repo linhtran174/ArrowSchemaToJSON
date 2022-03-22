@@ -18,12 +18,33 @@ cmake ..
 make
 ```
 
+## Folder structure
+- `include` : header files
+- `src` : implementation files
+- `test` : unit-tests
+
 ## Usage
-Use CMake to include all the source files in `src` folder. Static/Dynamic library object not yet available.
+Use CMake to include this folder
 ```
-#include <SchemaConverter.cpp>
+include_directories(arrowSchemaToJson)
+```
+
+Or manually include headers in `include` folder, and link with `libschemaConverter.a`
+A minimum example is included in `example.cpp`
+```
+#include <SchemaConverter.hpp>
+#include <arrow/api.h>
 
 int main(){
-    
+    shared_ptr<Field> a, b;
+    a = field("A", arrow::int32());
+    b = field("B", arrow::utf8());
+    shared_ptr<Schema> inputSchema = arrow::schema({a, b});
+    shared_ptr<Schema> inputSchema_dup = arrow::schema({a, b});
+
+    SchemaConverter converter;
+    shared_ptr<Schema> reconstructedSchema = converter.parse(converter.serialize(inputSchema));
+    cout << "inputSchema equals reconstructedSchema: " << inputSchema->Equals(*reconstructedSchema) << endl;
 }
 ```
+
