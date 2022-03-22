@@ -8,3 +8,8 @@ target_link_libraries(unit_Metadata PRIVATE nlohmann_json::nlohmann_json)
 add_executable(unit_SimpleField unit_SimpleFieldConverter.cpp)
 target_link_libraries(unit_SimpleField PRIVATE arrow_shared)
 target_link_libraries(unit_SimpleField PRIVATE nlohmann_json::nlohmann_json)
+
+
+add_executable(unit_CompositeField unit_CompositeFieldConverter.cpp)
+target_link_libraries(unit_CompositeField PRIVATE arrow_shared)
+target_link_libraries(unit_CompositeField PRIVATE nlohmann_json::nlohmann_json)

@@ -1,4 +1,8 @@
 #!/bin/bash
+mkdir -p libs;
+cd libs;
+git clone https://github.com/nlohmann/json nlohmann_json
+cd ..
 
 sudo apt install -y -V libarrow-dev # For C++
 sudo apt install -y -V libarrow-glib-dev # For GLib (C)

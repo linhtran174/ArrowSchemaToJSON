@@ -1,13 +1,11 @@
+#ifndef SIMPLEFIELDCONVERTER
+#define SIMPLEFIELDCONVERTER
+
 #include <iostream>
-#include "FieldConverter.cpp"
 #include "SimpleDataTypeConverter.cpp"
 #include "MetadataConverter.cpp"
 #include <arrow/api.h>
 #include <nlohmann/json.hpp>
-
-
-#ifndef SIMPLEFIELDCONVERTER
-#define SIMPLEFIELDCONVERTER
 
 using namespace std;
 using namespace arrow;

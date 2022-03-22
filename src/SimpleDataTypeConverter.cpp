@@ -1,11 +1,10 @@
-#include <iostream>
-#include "DataTypeConverter.cpp"
-#include <arrow/api.h>
-#include <nlohmann/json.hpp>
-
-
 #ifndef SIMPLEDATATYPECONVERTER
 #define SIMPLEDATATYPECONVERTER
+
+#include <iostream>
+#include <DataTypeConverter.hpp>
+#include <arrow/api.h>
+#include <nlohmann/json.hpp>
 
 // using namespace std;
 using namespace arrow;
@@ -59,6 +58,9 @@ class SimpleDataTypeConverter : DataTypeConverter{
             };
             
             // (Type::type)j["dt_id"];
+            if(typeIdToDataType.find((Type::type)j["dt_id"]) == typeIdToDataType.end()){
+                throw "Error: simple datatype not supported, dt_id: " + j["dt_id"].dump();
+            }
             shared_ptr<DataType> dtObj = typeIdToDataType[(Type::type)j["dt_id"]];
             
             return dtObj;
@@ -68,7 +70,6 @@ class SimpleDataTypeConverter : DataTypeConverter{
 
         // number of child fields
         int num_child;
-    
 };
 
 #endif

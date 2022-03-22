@@ -1,17 +1,14 @@
-#include <iostream>
-#include <arrow/api.h>
+#pragma once 
 
-#ifndef DATATYPECONVERTER
-#define DATATYPECONVERTER
+#include <arrow/api.h>
+#include <string>
 
 using namespace std;
 using namespace arrow;
 
 class DataTypeConverter{
     public: 
-        DataTypeConverter(){
-            
-        }
+        DataTypeConverter(){};
         virtual string serialize(shared_ptr<DataType>) = 0;
         virtual shared_ptr<DataType> parse(string JSON) = 0;
         
@@ -20,5 +17,3 @@ class DataTypeConverter{
         int num_child;
 
 };
-
-#endif
