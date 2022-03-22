@@ -79,9 +79,11 @@ shared_ptr<Field> CompositeFieldConverter::parse(string JSON){
         throw "Error: Field does not contain datatype";
     }
     CompositeDataTypeConverter c;
-    shared_ptr<DataType> dtType = c.parse(j["dataType"]);
+    // cout << j["dataType"].dump();
+    shared_ptr<DataType> dtType = c.parse(j["dataType"].dump());
 
     return field((string)j["name"], dtType, meta);
+    // return field((string)j["name"], utf8(), meta);
 }
 
 

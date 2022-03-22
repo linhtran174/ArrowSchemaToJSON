@@ -19,11 +19,11 @@ using namespace std;
 using namespace arrow;
 
 int main(){
-
     shared_ptr<Field> a, b;
     a = field("A", arrow::int32());
     b = field("B", arrow::utf8());
     shared_ptr<Schema> inputSchema = arrow::schema({a, b});
+    shared_ptr<Schema> inputSchema_dup = arrow::schema({a, b});
 
     SchemaConverter converter;
     string json = converter.serialize(inputSchema);
@@ -31,5 +31,7 @@ int main(){
 
     shared_ptr<Schema> reconstructedSchema = converter.parse(json);
     cout << "inputSchema equals reconstructedSchema: " << inputSchema->Equals(*reconstructedSchema) << endl;
+
+    // cout << "resSchema JSON: " << converter.serialize(reconstructedSchema)   << endl;
 }
 

@@ -6,6 +6,7 @@
 #include <nlohmann/json.hpp>
 #include <string>
 #include <map>
+#include <MetadataConverter.hpp>
 
 using namespace std;
 using namespace arrow;

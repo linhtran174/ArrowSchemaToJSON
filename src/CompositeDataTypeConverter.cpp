@@ -63,6 +63,10 @@ shared_ptr<DataType> CompositeDataTypeConverter::parse(string JSON){
             return list(child_field);
         }
     }
+    else{
+        SimpleDataTypeConverter c;
+        return c.parse(JSON);
+    }
 }
 
 string CompositeDataTypeConverter::serializeMap(shared_ptr<DataType> dtType){
@@ -101,7 +105,7 @@ string CompositeDataTypeConverter::serializeList(shared_ptr<DataType> dtType){
 bool CompositeDataTypeConverter::isCompositeDataType(shared_ptr<DataType> dtType){
     // Q: Where is the factory function for DataType with multiple child fields?
 
-    return this->isCompositeDataType(dtType->id())
+    return this->isCompositeDataType(dtType->id());
     // if(dtType->num_fields() > 1) return true;
     // else return false;
 }

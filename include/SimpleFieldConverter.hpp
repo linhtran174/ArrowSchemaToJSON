@@ -9,7 +9,7 @@ using namespace arrow;
 
 class SimpleFieldConverter : FieldConverter{
     public: 
-        SimpleFieldConverter(){};
+        SimpleFieldConverter();
         string serialize(shared_ptr<Field> field);
         shared_ptr<Field> parse(string JSON);
 };

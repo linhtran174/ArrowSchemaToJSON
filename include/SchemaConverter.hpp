@@ -8,7 +8,7 @@ using namespace arrow;
 
 class SchemaConverter{
     public: 
-        SchemaConverter(){}
+        SchemaConverter();
         string serialize(shared_ptr<Schema> sch);
         shared_ptr<Schema> parse(string JSON);
 };
