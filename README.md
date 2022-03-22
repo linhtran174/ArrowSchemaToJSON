@@ -5,7 +5,7 @@ C++ library to convert Arrow Schema to JSON string
 - [Arrow](https://github.com/apache/arrow)
 - [nlohmann JSON](https://github.com/nlohmann/json)
 
-Use the bash script installDependencies.sh to install the libraries above
+Use the bash script `installDependencies.sh` to install the libraries above
 ```
 bash installDependancies.sh
 ```
@@ -31,7 +31,7 @@ include_directories(arrowSchemaToJson)
 
 Or manually include headers in `include` folder, and link with `libschemaConverter.a`
 A minimum example is included in `example.cpp`
-```
+```C++
 #include <SchemaConverter.hpp>
 #include <arrow/api.h>
 
@@ -47,4 +47,11 @@ int main(){
     cout << "inputSchema equals reconstructedSchema: " << inputSchema->Equals(*reconstructedSchema) << endl;
 }
 ```
+
+## Limitations & Notes 
+- The project was designed to work with nested dataType like `map(int8(), map(utf8(), list(int32())))`, however I still have limited understand about ApacheArrow/requirements, and was stuck on the following points:
+--
+- No Linter is included, as I am not sure what is the requirement of the linter. Will study more abt similar projects & their linters later.
+-- Building custom rules for a linter system like cpplint?
+
 
