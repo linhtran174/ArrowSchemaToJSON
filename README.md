@@ -29,7 +29,8 @@ Use CMake to include this folder
 include_directories(arrowSchemaToJson)
 ```
 
-Or manually include headers in `include` folder, and link with `libschemaConverter.a`
+Or manually include headers in `include` folder, and link with `libschemaConverter.a`.
+
 A minimum example is included in `example.cpp`
 ```C++
 #include <SchemaConverter.hpp>
@@ -50,8 +51,9 @@ int main(){
 
 ## Limitations & Notes 
 - The project was designed to work with nested dataType like `map(int8(), map(utf8(), list(int32())))`, however I still have limited understand about ApacheArrow/requirements, and was stuck on the following points:
---
+    -- There is no way to get the key [DataType](https://arrow.apache.org/docs/cpp/api/datatype.html#_CPPv4N5arrow8DataTypeE) from a [MapType](https://arrow.apache.org/docs/cpp/api/datatype.html#classarrow_1_1_map_type). Digging in the source code is not a good option in my opinion.
+    -- A [DataType](https://arrow.apache.org/docs/cpp/api/datatype.html#classarrow_1_1_data_type) can contains multiple child [Fields](https://arrow.apache.org/docs/cpp/api/datatype.html#_CPPv4N5arrow5FieldE), but there is no factory function to construct a DataType from multiple Fields. Again, using private API is out of the question.
 - No Linter is included, as I am not sure what is the requirement of the linter. Will study more abt similar projects & their linters later.
--- Building custom rules for a linter system like cpplint?
+    -- Building custom rules for a linter system like cpplint?
 
 
