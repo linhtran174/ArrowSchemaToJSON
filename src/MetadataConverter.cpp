@@ -1,12 +1,14 @@
 #ifndef METADATACONVERTER
 #define METADATACONVERTER
 
+module schemaConverter;
+
 #include <iostream>
 #include <arrow/api.h>
 #include <nlohmann/json.hpp>
 #include <string>
 #include <map>
-#include <MetadataConverter.hpp>
+// #include <MetadataConverter.hpp>
 
 using namespace std;
 using namespace arrow;

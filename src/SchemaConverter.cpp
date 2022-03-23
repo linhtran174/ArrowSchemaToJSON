@@ -1,9 +1,11 @@
+module schemaConverter;
+
 #include <iostream>
 #include <arrow/api.h>
 #include <nlohmann/json.hpp>
-#include <CompositeFieldConverter.hpp>
-#include <MetadataConverter.hpp>
-#include <SchemaConverter.hpp>
+// #include <CompositeFieldConverter.hpp>
+// #include <MetadataConverter.hpp>
+// #include <SchemaConverter.hpp>
 
 using namespace std;
 using namespace arrow;

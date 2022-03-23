@@ -1,10 +1,12 @@
+module schemaConverter;
+
 #ifndef SIMPLEFIELDCONVERTER
 #define SIMPLEFIELDCONVERTER
 
 #include <iostream>
-#include <SimpleDataTypeConverter.hpp>
-#include <MetadataConverter.hpp>
-#include <SimpleFieldConverter.hpp>
+// #include <SimpleDataTypeConverter.hpp>
+// #include <MetadataConverter.hpp>
+// #include <SimpleFieldConverter.hpp>
 #include <arrow/api.h>
 #include <nlohmann/json.hpp>
 

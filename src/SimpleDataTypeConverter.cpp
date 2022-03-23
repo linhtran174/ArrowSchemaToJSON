@@ -1,8 +1,10 @@
+module schemaConverter;
+
 #ifndef SIMPLEDATATYPECONVERTER
 #define SIMPLEDATATYPECONVERTER
 
 #include <iostream>
-#include <SimpleDataTypeConverter.hpp>
+// #include <SimpleDataTypeConverter.hpp>
 #include <arrow/api.h>
 #include <nlohmann/json.hpp>
 

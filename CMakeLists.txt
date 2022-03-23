@@ -6,16 +6,16 @@ cmake_minimum_required(VERSION 3.11)
 message("generator is set to ${CMAKE_GENERATOR}")
 
 # C++ 20 modules support 
-# set(CXX_MODULES_CHECK -fmodules-ts)
-# set(CXX_MODULES_FLAGS -fmodules-ts)
-# set(CMAKE_CXX_FLAGS -fmodules-ts)
+set(CXX_MODULES_CHECK -fmodules-ts)
+set(CXX_MODULES_FLAGS -fmodules-ts)
+set(CMAKE_CXX_FLAGS -fmodules-ts)
 
 # target_compile_options(${TARGET} PRIVATE ${CXX_MODULES_FLAGS})
 
 
 set(CMAKE_LIBRARY_PATH libs)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # include(FetchContent)
@@ -23,7 +23,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # FetchContent_MakeAvailable(json)
 
 project(arrowSchemaToJSON)
-set(PROJECT_SRC_DIR src)
+# set(PROJECT_SRC_DIR src)
 
 find_package(Arrow REQUIRED)
 
@@ -38,7 +38,7 @@ include_directories(libs/nlohmann_json/single_include)
 link_libraries(arrow_shared)
 add_subdirectory(src)
 link_libraries(schemaConverter)
-add_subdirectory(tests)
+# add_subdirectory(tests)
 
-add_executable(example example.cpp)
+# add_executable(example example.cpp)
 # target_include_directories(example PRIVATE libs/nlohmann_json)

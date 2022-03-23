@@ -1,11 +1,13 @@
 #ifndef COMPOSITEDATATYPECONVERTER
 #define COMPOSITEDATATYPECONVERTER
 
+module schemaConverter;
+
 #include <iostream>
-#include <SimpleDataTypeConverter.hpp>
-#include <CompositeFieldConverter.hpp>
-#include <CompositeDataTypeConverter.hpp>
-#include <SimpleDataTypeConverter.hpp>
+// #include <SimpleDataTypeConverter.hpp>
+// #include <CompositeFieldConverter.hpp>
+// #include <CompositeDataTypeConverter.hpp>
+// #include <SimpleDataTypeConverter.hpp>
 #include <arrow/api.h>
 #include <nlohmann/json.hpp>
 #include <set>

@@ -1,13 +1,13 @@
 # Arrow Schema To JSON
 C++ library to convert Arrow Schema to JSON string
 
-## Dependancies
+## Dependencies
 - [Arrow](https://github.com/apache/arrow)
 - [nlohmann JSON](https://github.com/nlohmann/json)
 
 Use the bash script `installDependencies.sh` to install the libraries above
 ```
-bash installDependancies.sh
+bash installDependencies.sh
 ```
 
 ## Build
